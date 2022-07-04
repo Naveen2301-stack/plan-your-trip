@@ -1,0 +1,32 @@
+.sp1{
+    position: absolute;
+width: 227px;
+height: 73px;
+left: 40px;
+top: 130px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 800;
+font-size: 32px;
+line-height: 40px;
+text-align: center;
+
+color: #06FDEE;
+
+}
+.sp2{
+    position: absolute;
+width: 310px;
+height: 222.76px;
+left: 4px;
+top: 210px;
+
+}
+.sp3{
+    position: absolute;
+width: 300px;
+height: 50px;
+left: 8px;
+top: 500px;
+}
