@@ -1,9 +1,10 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonImg,IonLabel,IonInput,IonIcon,IonButton, useIonRouter} from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonImg,IonLabel,IonInput,IonIcon,IonButton, useIonRouter, IonGrid, IonRow} from '@ionic/react';
 import { lockClosed, mail, } from 'ionicons/icons';
 import { useState } from 'react';
 import './Login.css';
 import { UserAuth } from "../../context/AuthContext";
 import { toastController } from "@ionic/core";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -50,18 +51,32 @@ const Login = () => {
       }
     }
   };
-
   return (
     <IonPage>
-      <IonContent>
-      <IonImg src="assets/icon/Arrow.svg" alt="" className='img2'/>
-      <IonLabel className='log1'>Login</IonLabel>
-      <IonLabel className='log2'>Welcome back! Please log in to continue!</IonLabel>
-      <IonInput type="email" className='log3'   onIonChange={(e) => setEmail(e.detail.value)}> Email Adress</IonInput>
-      <IonInput type="password" className='log4'   onIonChange={(e) => setPassword(e.detail.value)}> Password</IonInput>
-      <IonLabel className='log5'>Forgot Password?</IonLabel>
+      <IonContent className='const3'>
+        <IonGrid className='login-grid'>
+          <IonRow>
+      <IonLabel className='login-row'>Login</IonLabel>
+      </IonRow>
+      <IonRow className='login-text-row'>
+      <IonLabel >Welcome back! Please log in to continue!</IonLabel>
+      </IonRow>
+      <IonRow className='login-text-row1'>
+      <IonInput type="email" className='log3' placeholder='EmailAddress'  onIonChange={(e) => setEmail(e.detail.value)} /> 
+      </IonRow>
+      <IonRow className='login-text-row2'>
+      <IonInput type="password" className='log4' placeholder='password'  onIonChange={(e) => setPassword(e.detail.value)} />
+      </IonRow>
+      <IonRow class='login-text-row3'>
+      <IonLabel>Forgot Password?</IonLabel>
+      </IonRow>
+      <IonRow className='login-page-btn'>
       <IonButton expand="full" size="default" fill="solid"color="green"className="log6" onClick={handleSubmit}> Log In</IonButton>
-      <IonLabel className='sign12'>Dont have an account ? <u className='plan7'>Signup</u></IonLabel>
+      </IonRow>
+      <IonRow className='login-text-row4'>
+      <IonLabel className='log7' >Dont have an account ? <Link to = "/signup">Signup</Link></IonLabel>
+      </IonRow>
+      </IonGrid>
       </IonContent>
     </IonPage>
   );
