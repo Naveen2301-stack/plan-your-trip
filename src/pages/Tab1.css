@@ -1,0 +1,40 @@
+.img3 {
+    position: absolute;
+    width: 26px;
+    height: 24px;
+    left: 14px;
+    top: 56px;
+}
+
+.home1 {
+    position: absolute;
+    width: 98px;
+    height: 30px;
+    left: 27px;
+    top: 75px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    /* identical to box height */
+
+
+    color: #407D60;
+}
+.home2{
+    position: absolute;
+width: 188px;
+height: 72.54px;
+left: 28px;
+top: 118px;
+font-size: 22px;
+}
+.sb{
+    position: absolute;
+width: 310px;
+height: 48px;
+left: 5px;
+top: 160px;
+}
