@@ -1,10 +1,11 @@
-import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter } from '@ionic/react';
+import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow } from '@ionic/react';
 import { useState } from 'react';
 // import { calendar, lockClosed, person } from 'ionicons/icons';
 import './SignUp.css';
 // import { setErrorHandler } from 'ionicons/dist/types/stencil-public-runtime';
 import { UserAuth } from "../../context/AuthContext";
 import { toastController } from "@ionic/core";
+import { Link } from 'react-router-dom';
 
 
 
@@ -65,25 +66,38 @@ const Signup = () => {
   };
   return (
     <IonPage>
-      <IonContent >
-        <IonImg src="assets/icon/Arrow.svg" alt="" className='img1' />
-        <IonLabel className='sign1'>Create Account</IonLabel>
-        <IonLabel className='sign2'>Signup to keep Exploring amazing destinations around the world!</IonLabel>
-        <IonInput type="text" className='sign3' onIonChange={(e) => setName(e.target.value)} > Full Name</IonInput>
-        <IonInput type="email" className='sign4' onIonChange={(e) => setEmail(e.target.value)}>Email</IonInput>
-        {/* <IonInput type="date" className='sign5' onIonChange={(e) => setDOB(e.target.value)} >Date</IonInput> */}
-        <IonInput type="password" className='sign6' onIonChange={(e) => setPassword(e.target.value)}> Password</IonInput>
+      <IonContent className='const1' >
+        <IonGrid className='signup-grid'>
+          <IonRow className='signup-row '>
+        <IonLabel>Create Your Account</IonLabel>
+        </IonRow>
+        <IonRow className='signup-text-row'>
+        <IonLabel >Signup to keep Exploring amazing </IonLabel>
+          <IonLabel>destinations around the world!</IonLabel>
+        </IonRow>
+        <IonRow className='signup-text-row1'>
+        <IonInput type="text" className='sign3' placeholder='Name' onIonChange={(e) => setName(e.target.value)} /> 
+        </IonRow>
+        <IonRow className='signup-text-row2'>
+        <IonInput type="email" className='sign4'placeholder='Email Adress' onIonChange={(e) => setEmail(e.target.value)} />
+        </IonRow>
+        <IonRow className='signup-text-row3'>
+        <IonInput type="password" className='sign6' placeholder='set password' onIonChange={(e) => setPassword(e.target.value)} />
+        </IonRow>
+        <IonRow className='signup-page-btn'>
         <IonButton expand="full" size="default" fill="solid" color="green" className="sign7" onClick={handleSubmit}> sign up</IonButton>
-        <IonLabel className='sign8'>or</IonLabel>
-        <IonLabel className='sign12'>Already have an account ? <u className='plan7'>Login</u></IonLabel>
-        <p className="sign9">By creating an account you agree to our</p>
-        <br />
-        <p className="sign10">
-          <u className="sign11">Terms & Conditions </u> and agree to
-          <u className="sign11"> Privacy Policy </u>
-        </p>
-
-
+        </IonRow>
+        <IonRow className='sign8'>
+        <IonLabel>or</IonLabel>
+        </IonRow>
+        <IonRow className='signup-text-row4'>
+        <IonLabel className='sign12'>Already have an account ? <Link to ="/login"> Login</Link> </IonLabel>
+        </IonRow>
+        <IonRow className='signup-text-row5'>
+        <IonLabel >By creating an account you agree to our </IonLabel>
+          <IonLabel> <Link to="/">Terms & Conditions </Link> and agree to <Link to="/"> Privacy Policy </Link> </IonLabel>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

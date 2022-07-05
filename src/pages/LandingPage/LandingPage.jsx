@@ -21,7 +21,7 @@ const LandingPage = () => {
     <IonPage>
       <IonContent className="const">
         <IonGrid className="grid8">
-          <IonRow className="signup-row">
+          <IonRow className="landing-row">
 
             <IonImg src="assets/icon/Group.svg" className="img" alt="" />
 
