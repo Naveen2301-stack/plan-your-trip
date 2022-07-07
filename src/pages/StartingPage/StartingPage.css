@@ -1,47 +1,43 @@
 .startingpage-grid {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    /* align-items: center; */
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  height: 100vh;
 }
 
 .const4 {
-    height: 100%;
-    --background: rgb(255, 201, 180);
+  height: 100%;
+  --background: rgb(255, 201, 180);
 }
 
 .startingpage-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /* align-items: center; */
-    /* font-family: 'Poppins'; */
-    /* font-style: normal; */
-    font-weight: 700;
-    font-size: 27px;
-    line-height: 40px;
-    text-align: center;
-    color: #000000;
-    margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+  /* font-family: 'Poppins'; */
+  /* font-style: normal; */
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  margin-top: 70px;
 }
 
 .get-started-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 60px;
-    /* width: 100px; */
-    margin-left: 5px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+  /* width: 100px; */
+  margin-left: 5px;
 }
 
 .signup-logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 7rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 7rem 0;
 }
-/* .sp3{
-  width: 300px;  
-} */

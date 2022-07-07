@@ -9,11 +9,10 @@
     text-align: end;
     position: relative;
     bottom: 26vh;
-    right:8vw;
+    right: 8vw;
 }
 
 img {
-    /* max-width: 100%; */
     border: 0;
     width: 22vw;
     height: 30vh;
@@ -29,7 +28,6 @@ img {
     position: relative;
     width: 192px;
     height: 64px;
-    /* left: 119px; */
     bottom: 160px;
     left: 25vw;
 }
@@ -54,7 +52,6 @@ img {
     left: 14px;
     top: -60px;
     background: #00FFF0;
-    /* border-radius: 100px; */
 }
 
 .plan4 {
@@ -64,7 +61,6 @@ img {
     left: 14px;
     top: -60px;
     background: #FFFEFE;
-    /* border-radius: 1000px; */
 }
 
 .plan5 {
@@ -102,7 +98,9 @@ img {
 
 .plan7 {
     color: #00FFF0
-}.const{
-    height:90vh;
+}
+
+.const {
+    height: 90vh;
     width: 50vh;
 }

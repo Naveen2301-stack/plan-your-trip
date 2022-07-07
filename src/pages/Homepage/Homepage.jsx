@@ -1,7 +1,6 @@
 import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
-// import { settings } from 'cluster'
-import {  chatbox, heart, home, map, settings,  } from 'ionicons/icons'
+import { chatbox, heart, home, map, settings, } from 'ionicons/icons'
 import { Redirect, Route } from 'react-router'
 import Tab1 from '../Tab1'
 import Tab2 from '../Tab2'
@@ -12,45 +11,45 @@ import Tab4 from '../Tab4'
 const Homepage = () => {
   return (
     <>
-    <IonReactRouter>
-      <IonTabs>
-      <IonRouterOutlet>
-          <Route path="/homepage/tab1">
-           <Tab1 />
-          </Route>
-          <Route path="/homepage/tab2">
-        <Tab2 />
-          </Route>
-          <Route path="/homepage/tab3">
-            <Tab3 />
-          </Route>
-          <Route path="/homepage/tab4">
-            <Tab4 />
-          </Route>
-          <Route exact path="/homepage">
-            <Redirect to="/homepage/tab1" />
-          </Route>
-        </IonRouterOutlet>
-      <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/homepage/tab1">
-            <IonIcon icon={home} />
-            <IonLabel>Home</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/homepage/tab2">
-            <IonIcon icon={map} />
-            <IonLabel>Maps</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/homepage/tab3">
-            <IonIcon icon={heart} />
-            <IonLabel>Favourite</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab4" href="/homepage/tab4">
-            <IonIcon icon={settings} />
-            <IonLabel>settings</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-     </IonReactRouter>
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route path="/homepage/tab1">
+              <Tab1 />
+            </Route>
+            <Route path="/homepage/tab2">
+              <Tab2 />
+            </Route>
+            <Route path="/homepage/tab3">
+              <Tab3 />
+            </Route>
+            <Route path="/homepage/tab4">
+              <Tab4 />
+            </Route>
+            <Route exact path="/homepage">
+              <Redirect to="/homepage/tab1" />
+            </Route>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="tab1" href="/homepage/tab1">
+              <IonIcon icon={home} />
+              <IonLabel>Home</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="tab2" href="/homepage/tab2">
+              <IonIcon icon={map} />
+              <IonLabel>Maps</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="tab3" href="/homepage/tab3">
+              <IonIcon icon={heart} />
+              <IonLabel>Favourite</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="tab4" href="/homepage/tab4">
+              <IonIcon icon={settings} />
+              <IonLabel>settings</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
     </>
   )
 }
