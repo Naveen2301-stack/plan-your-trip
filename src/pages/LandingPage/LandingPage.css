@@ -1,37 +1,30 @@
 .plan {
     display: flex;
     flex-direction: column;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Raleway";
     font-style: normal;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 40px;
     color: #000000;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+    margin-left: -13px;
 }
 
 .img {
     display: flex;
-    width: 18vw;
+    width: 80px;
+    margin-left: -15px;
 }
 
 .plan3 {
     width: 280px;
+    /* border-radius: 50px; */
 }
 
 .plan4 {
     width: 280px;
-}
-
-.plan5 {
-    display: flex;
-    justify-content: center;
-    width: 265px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 13px;
-    color: #000000;
-    word-spacing: 0.5px;
+    /* border-radius: 10px; */
+    margin-top: 15px;
 }
 
 .lp-last-text {
@@ -78,6 +71,7 @@
 
 .create-acnt-btn {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -93,8 +87,10 @@
     justify-content: space-around;
     align-items: center;
     height: 100vh;
+    padding: 7%;
 }
 
 .const {
     height: 100%;
+    --background:rgb(255, 201, 180);
 }

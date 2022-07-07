@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow } from '@ionic/react';
+import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow, useIonToast, useIonAlert } from '@ionic/react';
 import { useState } from 'react';
 // import { calendar, lockClosed, person } from 'ionicons/icons';
 import './SignUp.css';
@@ -6,28 +6,49 @@ import './SignUp.css';
 import { UserAuth } from "../../context/AuthContext";
 import { toastController } from "@ionic/core";
 import { Link } from 'react-router-dom';
+import { alert } from 'ionicons/icons';
 
 
 
 
 const Signup = () => {
+  const [present, dismiss] = useIonToast();
   async function handleButtonClick(message) {
-    const toast = await toastController.create({
-      color: "light",
+    present({
+      message: message,
       duration: 2000,
       position: "top",
-      message: message,
-      showCloseButton: true,
+      color: "dark-black",
+      mode: "ios",
+      icon: alert,
     });
-    await toast.present();
   }
+  const [presentAlert] = useIonAlert();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   // const [dob, setDOB] = useState("")
   const [password, setPassword] = useState("");
   const [error, setError] = useState('')
   const { createUser, currentUser } = UserAuth();
+   
+  const clearInputs = () => {
+    setName("");
+    setEmail('');
+    setPassword('');
+  }
+
+  //ion-router
   const router = useIonRouter();
+
+  async function handleAlert(message) {
+    presentAlert({
+      header: "Alert",
+      message: message,
+      buttons: ["OK"],
+      mode: "ios",
+      color: "dark-black",
+    });
+  }
 
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
@@ -41,7 +62,7 @@ const Signup = () => {
       password == null ||
       password === ""
     ) {
-      handleButtonClick("fill the required fields");
+      handleButtonClick("please fill the required fields");
     } else if (password.length < 6) {
       handleButtonClick("Password must be of atleast 6 characters");
     }else if (
@@ -56,7 +77,8 @@ const Signup = () => {
     // setError('')
      try {
       await createUser(email, password);
-      handleButtonClick(name +"  " + "user sucessfully registered")
+      handleButtonClick(name +"  "+ "user sucessfully registered")
+      clearInputs();
       router.push("/login")
     } catch (e) {
       setError(e.message)
@@ -69,34 +91,26 @@ const Signup = () => {
       <IonContent className='const1' >
         <IonGrid className='signup-grid'>
           <IonRow className='signup-row '>
-        <IonLabel>Create Your Account</IonLabel>
+        <IonLabel color="dark-black">Create Your Account!</IonLabel>
         </IonRow>
         <IonRow className='signup-text-row'>
-        <IonLabel >Signup to keep Exploring amazing </IonLabel>
-          <IonLabel>destinations around the world!</IonLabel>
+        <IonLabel color="dark-black" >Signup to keep Exploring amazing </IonLabel>
+          <IonLabel color="dark-black">destinations around the world!</IonLabel>
         </IonRow>
         <IonRow className='signup-text-row1'>
-        <IonInput type="text" className='sign3' placeholder='Name' onIonChange={(e) => setName(e.target.value)} /> 
-        </IonRow>
-        <IonRow className='signup-text-row2'>
-        <IonInput type="email" className='sign4'placeholder='Email Adress' onIonChange={(e) => setEmail(e.target.value)} />
-        </IonRow>
-        <IonRow className='signup-text-row3'>
-        <IonInput type="password" className='sign6' placeholder='set password' onIonChange={(e) => setPassword(e.target.value)} />
+        <IonInput type="text" className='sign3' value ={name} placeholder='Name' color="dark-black" onIonChange={(e) => setName(e.target.value)} />
+        <IonInput type="email" className='sign3'value = {email}placeholder='Email Adress' color="dark-black" onIonChange={(e) => setEmail(e.target.value)} /> 
+        <IonInput type="password" className='sign3' value = {password} placeholder='set password'color="dark-black" onIonChange={(e) => setPassword(e.target.value)} />
         </IonRow>
         <IonRow className='signup-page-btn'>
-        <IonButton expand="full" size="default" fill="solid" color="green" className="sign7" onClick={handleSubmit}> sign up</IonButton>
+        <IonButton expand="full" size="default" fill="solid" color="dark-black" className="sign7"shape="round" onClick={handleSubmit}> sign up</IonButton>
         </IonRow>
         <IonRow className='sign8'>
         <IonLabel>or</IonLabel>
         </IonRow>
         <IonRow className='signup-text-row4'>
-        <IonLabel className='sign12'>Already have an account ? <Link to ="/login"> Login</Link> </IonLabel>
+        <IonLabel className='sign12' color="dark-black">Already have an account ? <Link to ="/login"> Login</Link> </IonLabel>
         </IonRow>
-        <IonRow className='signup-text-row5'>
-        <IonLabel >By creating an account you agree to our </IonLabel>
-          <IonLabel> <Link to="/">Terms & Conditions </Link> and agree to <Link to="/"> Privacy Policy </Link> </IonLabel>
-          </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>

@@ -1,10 +1,11 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonImg,IonLabel,IonInput,IonIcon,IonButton, useIonRouter, IonGrid, IonRow} from '@ionic/react';
-import { lockClosed, mail, } from 'ionicons/icons';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar,IonImg,IonLabel,IonInput,IonIcon,IonButton, useIonRouter, IonGrid, IonRow, useIonToast, useIonAlert} from '@ionic/react';
+import { alert, lockClosed, mail, } from 'ionicons/icons';
 import { useState } from 'react';
 import './Login.css';
 import { UserAuth } from "../../context/AuthContext";
 import { toastController } from "@ionic/core";
 import { Link } from 'react-router-dom';
+
 
 const Login = () => {
 
@@ -12,26 +13,45 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [present, dismiss] = useIonToast();
+  const [presentAlert] = useIonAlert();
+
+// function for clearing inputs
+const clearInputs = () => {
+  setEmail('');
+  setPassword('');
+}
 
 
   async function handleButtonClick(message) {
-    const toast = await toastController.create({
-      color: "light",
+    present({
+      message: message,
       duration: 2000,
       position: "top",
-      message: message,
-      showCloseButton: true,
+      color: "dark-black",
+      mode: "ios",
+      icon: alert
     });
-
-    await toast.present();
+  }
+  async function handleAlert(message) {
+    presentAlert({
+      header: "Alert",
+      message: message,
+      buttons: ["OK","cancel"],
+      mode: "ios",
+      animated:true,
+      // cssClass: 'loginpage-alert',
+      color: 'dark-black'
+    });
   }
 
   const router = useIonRouter();
+
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
-    if (email == null || email === "" || password == null || password === "") {
-      handleButtonClick("Fill the required fields");
+    if (email == null || email === "" || password == null || password === "" ) {
+      handleButtonClick("Please Fill the required fields");
     } else if (password.length < 6) {
       handleButtonClick("Password length must be of 6 characters");
     } else if (
@@ -44,34 +64,34 @@ const Login = () => {
       try {
         await login(email, password);
         handleButtonClick("user logged in successful");
+        clearInputs();
         router.push("/startingpage");
       } catch (e) {
         setError(e.message);
-        console.log(e.message);
+        handleAlert(e.message);
       }
     }
   };
+
   return (
     <IonPage>
       <IonContent className='const3'>
         <IonGrid className='login-grid'>
           <IonRow>
-      <IonLabel className='login-row'>Login</IonLabel>
+      <IonLabel className='login-row' color="dark-black">Login</IonLabel>
       </IonRow>
       <IonRow className='login-text-row'>
-      <IonLabel >Welcome back! Please log in to continue!</IonLabel>
+      <IonLabel  color="dark-black" >Welcome back! Please log in to continue!</IonLabel>
       </IonRow>
       <IonRow className='login-text-row1'>
-      <IonInput type="email" className='log3' placeholder='EmailAddress'  onIonChange={(e) => setEmail(e.detail.value)} /> 
-      </IonRow>
-      <IonRow className='login-text-row2'>
-      <IonInput type="password" className='log4' placeholder='password'  onIonChange={(e) => setPassword(e.detail.value)} />
+      <IonInput type="email" className='log3' placeholder='Email Address' value={email}  color="dark-black"  onIonChange={(e) => setEmail(e.detail.value)} />
+      <IonInput type="password" className='log3' placeholder='password' value ={password} color="dark-black"  onIonChange={(e) => setPassword(e.detail.value)} /> 
       </IonRow>
       <IonRow class='login-text-row3'>
-      <IonLabel>Forgot Password?</IonLabel>
+      <IonLabel  color="dark-black">Forgot Password?</IonLabel>
       </IonRow>
       <IonRow className='login-page-btn'>
-      <IonButton expand="full" size="default" fill="solid"color="green"className="log6" onClick={handleSubmit}> Log In</IonButton>
+      <IonButton expand="full" size="default" fill="solid"color="dark-black"className=" ion-text-capitalize log6" shape="round" onClick={handleSubmit}> Log In</IonButton>
       </IonRow>
       <IonRow className='login-text-row4'>
       <IonLabel className='log7' >Dont have an account ? <Link to = "/signup">Signup</Link></IonLabel>

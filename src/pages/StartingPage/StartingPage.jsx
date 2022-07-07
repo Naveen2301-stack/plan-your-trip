@@ -9,10 +9,14 @@ const StartingPage = () => {
     <IonContent className='const4'>
       <IonGrid>
       <IonRow className='startingpage-text'>
-    <IonLabel >Welcome to Plan Travel</IonLabel>
+    <IonLabel >Welcome to PlanTravel</IonLabel>
     </IonRow>
+<IonRow className='signup-logo'>
     <IonImg src="assets/icon/People.svg" alt = "" className='sp2'></IonImg>
-    <IonButton expand="full" size="default" fill="solid"className="sp3" color="green" routerLink="/homepage">GET STARTED</IonButton>
+    </IonRow>
+    <IonRow className='get-started-btn'>
+    <IonButton expand="full" size="default" fill="solid"className=" ion-text-capitalize sp3" color="dark-black" routerLink="/homepage" shape="round">Get Started</IonButton>
+    </IonRow>
     </IonGrid>
     </IonContent>
   </IonPage>

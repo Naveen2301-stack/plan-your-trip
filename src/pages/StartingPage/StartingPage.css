@@ -7,34 +7,41 @@
 }
 
 .const4 {
-    height: 100%
+    height: 100%;
+    --background: rgb(255, 201, 180);
 }
 
 .startingpage-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
+    /* align-items: center; */
+    /* font-family: 'Poppins'; */
+    /* font-style: normal; */
+    font-weight: 700;
+    font-size: 27px;
     line-height: 40px;
     text-align: center;
-    color: #06FDEE;
+    color: #000000;
+    margin-top: 70px;
 }
 
-/* .sp2{
-    position: absolute;
-width: 310px;
-height: 222.76px;
-left: 4px;
-top: 210px;
+.get-started-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 60px;
+    /* width: 100px; */
+    margin-left: 5px;
 
-} */
+}
+
+.signup-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 7rem 0;
+}
 /* .sp3{
-    position: absolute;
-width: 300px;
-height: 50px;
-left: 8px;
-top: 500px;
+  width: 300px;  
 } */

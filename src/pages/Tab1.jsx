@@ -11,6 +11,7 @@ const Tab1 = () => {
       <IonLabel className='home1'>Hi Vecna!</IonLabel>
       <IonLabel className='home2'>Discover</IonLabel>
       <IonSearchbar placeholder="search for places" className='sb' showCancelButton="never"></IonSearchbar>
+      
       </IonContent>
     </IonPage>
   );
