@@ -1,40 +1,77 @@
-.img3 {
-    position: absolute;
-    width: 26px;
-    height: 24px;
-    left: 14px;
-    top: 56px;
+.tab1 {
+    /* height: 100%; */
+  }
+  
+.tab1-grid{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* height: 100vh; */
 }
 
-.home1 {
-    position: absolute;
-    width: 98px;
-    height: 30px;
-    left: 27px;
-    top: 75px;
-
+.home-back-button-row{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content:flex-start;
+    padding: 5%;
+  
+    
+}
+.hi-text{
+    display: flex;
+    font-size: 1.7rem;
+    padding: 5%;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* justify-content: flex-start; */
+    /* margin-top: -60px; */
+}
+.v1{
+    display: flex; 
+    align-items: center;
+    margin-left: 5px;
+}
+.card-row{
+    display: flex;
+    justify-content: space-around;
+}
+.card1{
+    padding: 4%;
+    border-radius: 10px;
+    height:100px
+}
+.card2{
+    padding: 4%;
+    border-radius: 10px;
+    height:100px
+}
+.card3{
+    padding: 4%;
+    border-radius: 10px;
+    height:100px
+}
+.img-img{
+    width: 50px;
+}
+.row2{
+    display: flex;
+    flex-direction: column;
+}
+.card-row{
+    margin-top:20px;
+}
+.pd{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.pd1{
     font-family: 'Poppins';
     font-style: normal;
+    font-size: 20px;
     font-weight: 600;
-    font-size: 22px;
-    line-height: 30px;
-    /* identical to box height */
-
-
-    color: #407D60;
+    /* line-height: 30px;   */
 }
-.home2{
-    position: absolute;
-width: 188px;
-height: 72.54px;
-left: 28px;
-top: 118px;
-font-size: 22px;
-}
-.sb{
-    position: absolute;
-width: 310px;
-height: 48px;
-left: 5px;
-top: 160px;
+.pd2{
+    
 }

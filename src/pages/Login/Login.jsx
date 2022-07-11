@@ -136,7 +136,7 @@ const Login = () => {
             </IonButton>
           </IonRow>
           <IonRow className="login-text-row4">
-            <IonLabel className="log7">
+            <IonLabel className="log7" color = "dark-black">
               Dont have an account ? <Link to="/signup">Signup</Link>
             </IonLabel>
           </IonRow>
