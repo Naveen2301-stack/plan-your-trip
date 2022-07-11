@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow, useIonToast, useIonAlert } from '@ionic/react';
+import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow, useIonToast, useIonAlert, IonLoading } from '@ionic/react';
 import { useState } from 'react';
 // import { calendar, lockClosed, person } from 'ionicons/icons';
 import './SignUp.css';
@@ -30,6 +30,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState('')
   const { createUser, currentUser } = UserAuth();
+  const [loading, setloading] = useState(false);
    
   const clearInputs = () => {
     setName("");
@@ -76,16 +77,23 @@ const Signup = () => {
     // e.preventDefault()
     // setError('')
      try {
+      setloading(true);
       await createUser(email, password);
+      setloading(false);
       handleButtonClick(name +"  "+ "user sucessfully registered")
       clearInputs();
-      router.push("/login")
+      router.push("/login");
     } catch (e) {
       setError(e.message)
+      clearInputs();
       console.log(e.message)
     }
   }
   };
+
+  if(loading){
+    return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'SigningUp!...'} duration={3000} mode= "ios" spinner="bubbles"/>
+  }
   return (
     <IonPage>
       <IonContent className='const1' >

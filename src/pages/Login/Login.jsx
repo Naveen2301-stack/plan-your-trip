@@ -14,6 +14,7 @@ import {
   IonRow,
   useIonToast,
   useIonAlert,
+  IonLoading,
 } from "@ionic/react";
 import { alert, lockClosed, mail } from "ionicons/icons";
 import { useState } from "react";
@@ -29,6 +30,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [present, dismiss] = useIonToast();
   const [presentAlert] = useIonAlert();
+  const [loading, setloading] = useState(false);
 
   // function for clearing inputs
   const clearInputs = () => {
@@ -75,16 +77,23 @@ const Login = () => {
       handleButtonClick("Please entera valid email address");
     } else {
       try {
+        setloading(true);
         await login(email, password);
+        setloading(false);
         handleButtonClick("user logged in successful");
         clearInputs();
         router.push("/startingpage");
       } catch (e) {
         setError(e.message);
+        clearInputs();
         handleAlert(e.message);
       }
     }
   };
+
+  if(loading){
+    return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'Loging In!...'} duration={3000} mode= "ios" spinner="bubbles"/>
+  }
 
   return (
     <IonPage>
