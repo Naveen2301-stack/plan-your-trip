@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
   IonIcon,
@@ -7,7 +7,10 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  setupIonicReact
+  isPlatform,
+  setupIonicReact,
+  useIonAlert,
+  useIonToast
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
@@ -41,10 +44,107 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import Login from './pages/Login/Login';
 import StartingPage from './pages/StartingPage/StartingPage';
 import { AuthContextProvider } from './context/AuthContext';
+import { useEffect, useState } from 'react';
+import { collection, doc, getDoc, setDoc } from "firebase/firestore"; 
+import { db } from "./firebase";
+import { Browser } from '@capacitor/browser';
+import { App as app} from '@capacitor/app';
+
 
 setupIonicReact();
 
-const App = () => (
+const App = () => {
+  const [updateDetails,setUpdateDetails] = useState({});
+  const [appVersion, setAppVersion] = useState("");
+
+  const updateRef = doc(db, "plantravel_app_config", "RbHsE8tIW3Dk1wo4Jc44");
+  
+  const [presentAlert] = useIonAlert();
+  const [present] = useIonToast();
+
+
+  const handleToast = (msg) => {
+    present({
+      message: msg,
+      position: "top",
+      animated: true,
+      duration: 2000,
+      color: "dark-black",
+      mode: "ios",
+    });
+  };
+
+  const handleAlert = (msg, title, btn, appVersion) => {
+    presentAlert({
+      header: title,
+      subHeader: `Version: ${appVersion}`,
+      message: msg,
+      buttons: [
+        {
+          text: btn,
+          role: "Download",
+          handler: async () => {
+            handleToast("Download Clicked");
+            await Browser.open({
+              url: "https://play.google.com/store/apps/details?id=com.planyourtrip.app",
+            });
+          },
+        },
+      ],
+      backdropDismiss: true,
+      translucent: true,
+      animated: true,
+      // cssClass: "lp-sp-alert",
+    });
+  };
+
+  const getAppInfo = async () => {
+    let info = await app.getInfo();
+    return info;
+  };
+
+  const getConfigData = async () => {
+    const docSnap = await getDoc(updateRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      console.log("Document data:", docSnap.data());
+      setUpdateDetails(data.updateMsg);
+      setAppVersion(data.current);
+    } else {
+      console.log("No such document!");
+    }
+  };
+  const checkUpdate = async () => {
+    try {
+      if (isPlatform("android")) {
+        const currentAppInfo = getAppInfo();
+        if (appVersion > (await currentAppInfo).version) {
+          const msg = updateDetails.msg;
+          const title = updateDetails.title;
+          const btn = updateDetails.btn;
+          handleAlert(msg, title, btn, appVersion);
+        }
+      } 
+      // else {
+      //   const msg = "App is not running on android platform";
+      //   handleToast(msg);
+      // }
+    } 
+    catch (error) {
+      // handleAlert(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getConfigData();
+    if (isPlatform("android")){
+      getAppInfo();
+    }
+  }, [0]);
+
+    checkUpdate();
+
+    return(
   <AuthContextProvider>
   <IonApp>
     <IonReactRouter>
@@ -83,6 +183,7 @@ const App = () => (
     </IonReactRouter>
   </IonApp>
   </AuthContextProvider>
-);
+    )
+};
 
 export default App;
