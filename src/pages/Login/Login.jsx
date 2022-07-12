@@ -92,7 +92,7 @@ const Login = () => {
   };
 
   if(loading){
-    return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'Loging In!...'} duration={3000} mode= "ios" spinner="bubbles"/>
+    return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'Loging In!...'} duration={3000} mode= "ios" spinner="bubbles" translucent="false"/>
   }
 
   return (
