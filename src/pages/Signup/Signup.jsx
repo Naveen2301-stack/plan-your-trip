@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow, useIonToast, useIonAlert, IonLoading } from '@ionic/react';
+import { IonContent, IonHeader, IonImg, IonLabel, IonPage, IonTitle, IonToolbar, IonInput, IonIcon, IonButton, useIonRouter, IonGrid, IonRow, useIonToast, useIonAlert, IonLoading, useIonLoading } from '@ionic/react';
 import { useState } from 'react';
 // import { calendar, lockClosed, person } from 'ionicons/icons';
 import './SignUp.css';
@@ -30,7 +30,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState('')
   const { createUser, currentUser } = UserAuth();
-  const [loading, setloading] = useState(false);
+  // const [loading, setloading] = useState(false);
+  const [presentloading, dismissloading] = useIonLoading();
    
   const clearInputs = () => {
     setName("");
@@ -55,6 +56,7 @@ const Signup = () => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
 
+   
     if (
       name == null ||
       name === "" ||
@@ -77,13 +79,22 @@ const Signup = () => {
     // e.preventDefault()
     // setError('')
      try {
-      setloading(true);
+      presentloading({
+        message: 'SigningUp!...',
+        duration: 3000,
+        spinner:"lines-sharp",
+        mode:"ios",
+        cssClass:"sp-spinner"
+  
+      })
+  
       await createUser(email, password);
-      setloading(false);
       handleButtonClick(name +"  "+ "user sucessfully registered")
       clearInputs();
+      dismissloading();
       router.push("/login");
     } catch (e) {
+      dismissloading();
       setError(e.message)
       clearInputs();
       console.log(e.message)
@@ -91,9 +102,9 @@ const Signup = () => {
   }
   };
 
-  if(loading){
-    return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'SigningUp!...'} duration={3000} mode= "ios" spinner="bubbles"/>
-  }
+  // if(loading){
+  //   return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'SigningUp!...'} duration={3000} mode= "ios" spinner="bubbles"/>
+  // }
   return (
     <IonPage>
       <IonContent className='const1' >

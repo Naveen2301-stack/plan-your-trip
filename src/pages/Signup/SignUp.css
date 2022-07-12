@@ -107,3 +107,7 @@
   --ion-color-shade: var(--ion-color-dark-black-shade);
   --ion-color-tint: var(--ion-color-dark-black-tint);
 }
+.sp-spinner{
+  --spinner-color:rgb(255, 0, 0);
+  /* --background: rgb(0, 0, 0); */
+}

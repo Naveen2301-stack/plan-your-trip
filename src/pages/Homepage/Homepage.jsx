@@ -2,6 +2,7 @@ import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } 
 import { IonReactRouter } from '@ionic/react-router'
 import { chatbox, heart, home, map, settings, } from 'ionicons/icons'
 import { Redirect, Route } from 'react-router'
+import ProtectedRoute from '../../components/ProtectedRoute'
 import Tab1 from '../Tab1'
 import Tab2 from '../Tab2'
 import Tab3 from '../Tab3'
@@ -15,16 +16,24 @@ const Homepage = () => {
         <IonTabs>
           <IonRouterOutlet>
             <Route path="/homepage/tab1">
+             <ProtectedRoute>
               <Tab1 />
+              </ProtectedRoute>
             </Route>
             <Route path="/homepage/tab2">
+            <ProtectedRoute>
               <Tab2 />
+              </ProtectedRoute>
             </Route>
             <Route path="/homepage/tab3">
+            <ProtectedRoute>
               <Tab3 />
+              </ProtectedRoute>
             </Route>
             <Route path="/homepage/tab4">
+            <ProtectedRoute>
               <Tab4 />
+              </ProtectedRoute>
             </Route>
             <Route exact path="/homepage">
               <Redirect to="/homepage/tab1" />

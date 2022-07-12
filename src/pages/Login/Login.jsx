@@ -15,6 +15,7 @@ import {
   useIonToast,
   useIonAlert,
   IonLoading,
+  useIonLoading,
 } from "@ionic/react";
 import { alert, lockClosed, mail } from "ionicons/icons";
 import { useState } from "react";
@@ -30,7 +31,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [present, dismiss] = useIonToast();
   const [presentAlert] = useIonAlert();
-  const [loading, setloading] = useState(false);
+  const [presentloading, dismissloading] = useIonLoading();
 
   // function for clearing inputs
   const clearInputs = () => {
@@ -77,13 +78,21 @@ const Login = () => {
       handleButtonClick("Please entera valid email address");
     } else {
       try {
-        setloading(true);
+        presentloading({
+          message: 'Logging In!...',
+          duration: 3000,
+          spinner:"lines-sharp",
+          mode:"ios",
+          cssClass:"lp-spinner"
+    
+        })
         await login(email, password);
-        setloading(false);
+        dismissloading();
         handleButtonClick("user logged in successful");
         clearInputs();
         router.push("/startingpage");
       } catch (e) {
+        dismissloading();
         setError(e.message);
         clearInputs();
         handleAlert(e.message);
@@ -91,9 +100,9 @@ const Login = () => {
     }
   };
 
-  if(loading){
-    return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'Loging In!...'} duration={3000} mode= "ios" spinner="bubbles" translucent="false"/>
-  }
+  // if(loading){
+  //   return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'Loging In!...'} duration={3000} mode= "ios" spinner="bubbles" translucent="false"/>
+  // }
 
   return (
     <IonPage>

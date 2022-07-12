@@ -84,3 +84,7 @@
 .loginpage-alert {
   --background: whitesmoke;
 }
+.lp-spinner{
+  --spinner-color:rgb(255, 0, 0);
+  /* --background: rgb(0, 0, 0); */
+}
