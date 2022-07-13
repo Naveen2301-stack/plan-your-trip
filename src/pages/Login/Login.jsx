@@ -158,6 +158,8 @@ const Login = () => {
               Dont have an account ? <Link to="/signup">Signup</Link>
             </IonLabel>
           </IonRow>
+          {/* <IonLabel>hey</IonLabel>
+          <IonLabel>live reload</IonLabel> */}
         </IonGrid>
       </IonContent>
     </IonPage>
