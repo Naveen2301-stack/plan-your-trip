@@ -82,8 +82,8 @@ const Signup = () => {
       presentloading({
         message: 'SigningUp!...',
         duration: 3000,
-        spinner:"lines-sharp",
-        mode:"ios",
+        spinner:"crescent",
+        mode:"md",
         cssClass:"sp-spinner"
   
       })

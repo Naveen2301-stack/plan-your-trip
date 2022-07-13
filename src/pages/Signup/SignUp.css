@@ -108,6 +108,6 @@
   --ion-color-tint: var(--ion-color-dark-black-tint);
 }
 .sp-spinner{
-  --spinner-color:rgb(255, 0, 0);
+  --spinner-color:rgb(0, 4, 255);
   /* --background: rgb(0, 0, 0); */
 }

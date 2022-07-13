@@ -81,8 +81,8 @@ const Login = () => {
         presentloading({
           message: 'Logging In!...',
           duration: 3000,
-          spinner:"lines-sharp",
-          mode:"ios",
+          spinner:"crescent",
+          mode:"md",
           cssClass:"lp-spinner"
     
         })
