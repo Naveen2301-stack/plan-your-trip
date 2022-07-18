@@ -111,3 +111,28 @@
   --spinner-color:rgb(0, 4, 255);
   /* --background: rgb(0, 0, 0); */
 }
+.signup9{
+  /* font-family: "Poppins", sans-serif; */
+  font-size: 15px;
+  font-weight: bold;
+}
+.google-btn-row{
+  display: flex;
+  /* justify-content:space-around; */
+}
+.social-row{
+  display: flex;
+  justify-content: center;
+}
+.google-row{
+  display: flex;
+  justify-content:center;
+}
+.svg-col{
+  display: flex;
+  justify-content:center;
+}
+.fb-image-col{
+  display: flex;
+  justify-content: center;
+}

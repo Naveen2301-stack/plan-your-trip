@@ -6,5 +6,13 @@
 	{
 		"pkg": "@capacitor/browser",
 		"classpath": "com.capacitorjs.plugins.browser.BrowserPlugin"
+	},
+	{
+		"pkg": "@codetrix-studio/capacitor-google-auth",
+		"classpath": "com.codetrixstudio.capacitor.GoogleAuth.GoogleAuth"
+	},
+	{
+		"pkg": "@rdlabo/capacitor-facebook-login",
+		"classpath": "jp.rdlabo.capacitor.plugin.facebook.FacebookLogin"
 	}
 ]

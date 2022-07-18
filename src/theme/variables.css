@@ -285,3 +285,20 @@ http://ionicframework.com/docs/theming/ */
 	--ion-color-shade: var(--ion-color-white-shade);
 	--ion-color-tint: var(--ion-color-white-tint);
 }
+:root {
+	--ion-color-lora: #3E95A1;
+	--ion-color-lora-rgb: 62,149,161;
+	--ion-color-lora-contrast: #ffffff;
+	--ion-color-lora-contrast-rgb: 255,255,255;
+	--ion-color-lora-shade: #37838e;
+	--ion-color-lora-tint: #51a0aa;
+}
+
+.ion-color-lora {
+	--ion-color-base: var(--ion-color-lora);
+	--ion-color-base-rgb: var(--ion-color-lora-rgb);
+	--ion-color-contrast: var(--ion-color-lora-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-lora-contrast-rgb);
+	--ion-color-shade: var(--ion-color-lora-shade);
+	--ion-color-tint: var(--ion-color-lora-tint);
+}

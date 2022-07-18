@@ -4,4 +4,5 @@
     <string name="title_activity_main">plan-your-tour</string>
     <string name="package_name">com.planyourtrip.app</string>
     <string name="custom_url_scheme">com.planyourtrip.app</string>
+    <string name="server_client_id">203534877204-j3j109mvpnqthnmol6m7cphual6tum2i.apps.googleusercontent.com</string>
 </resources>

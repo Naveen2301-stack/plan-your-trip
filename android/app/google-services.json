@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "203534877204",
+    "project_id": "trip-your-pan",
+    "storage_bucket": "trip-your-pan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:203534877204:android:496e2a4e4ed603f8c7dd01",
+        "android_client_info": {
+          "package_name": "com.planyourtrip.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "203534877204-4lsequshe21ivd32o8o00oshq0dsskat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.planyourtrip.app",
+            "certificate_hash": "a8f2c28b0e38cd81cd735b84c65d5a23f577c80a"
+          }
+        },
+        {
+          "client_id": "203534877204-j3j109mvpnqthnmol6m7cphual6tum2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2eD0LRYQNq5gCgR_KJvSoQRUFF241wsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "203534877204-j3j109mvpnqthnmol6m7cphual6tum2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

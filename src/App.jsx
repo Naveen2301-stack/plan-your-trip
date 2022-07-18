@@ -51,6 +51,8 @@ import { Browser } from '@capacitor/browser';
 import { App as app} from '@capacitor/app';
 
 
+
+
 setupIonicReact();
 
 const App = () => {

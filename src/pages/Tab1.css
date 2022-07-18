@@ -73,5 +73,29 @@
     /* line-height: 30px;   */
 }
 .pd2{
-    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 600;
+    color:#3E95A1;
+}
+.big-cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.paris-text{
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    padding: 7px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.heart-icon{
+    width: 21px;
+    height: 27px;
+    margin-top: 16px;
+    margin-left: 130px;
 }
