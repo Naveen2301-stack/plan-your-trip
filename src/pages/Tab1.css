@@ -1,5 +1,6 @@
 .tab1 {
     /* height: 100%; */
+    /* --background: var(--ion-color-ui-theme) */
   }
   
 .tab1-grid{
@@ -14,6 +15,7 @@
     /* flex-direction: column; */
     justify-content:flex-start;
     padding: 5%;
+    margin-top: 80px;
   
     
 }
@@ -33,7 +35,7 @@
 }
 .card-row{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between
 }
 .card1{
     padding: 4%;
@@ -51,6 +53,8 @@
     height:100px
 }
 .img-img{
+    display: flex;
+    margin-top: -10px;
     width: 50px;
 }
 .row2{
@@ -73,5 +77,35 @@
     /* line-height: 30px;   */
 }
 .pd2{
-    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 600;
+    color:#3E95A1;
+}
+.big-cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.paris-text{
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    padding: 7px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.heart-icon{
+    width: 21px;
+    height: 27px;
+    margin-top: 16px;
+    margin-left: 130px;
+}
+.countries{
+    display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: center;
+    color: black;
 }

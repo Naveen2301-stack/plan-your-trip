@@ -16,6 +16,7 @@ import {
   useIonAlert,
   IonLoading,
   useIonLoading,
+  IonCol,
 } from "@ionic/react";
 import { alert, lockClosed, mail } from "ionicons/icons";
 import { useState } from "react";
@@ -23,6 +24,7 @@ import "./Login.css";
 import { UserAuth } from "../../context/AuthContext";
 import { toastController } from "@ionic/core";
 import { Link } from "react-router-dom";
+// import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth'
 
 const Login = () => {
   const { login, user } = UserAuth();
@@ -60,6 +62,22 @@ const Login = () => {
       color: "dark-black",
     });
   }
+
+  // const signInGoogle = async () => {
+
+  //   GoogleAuth.initialize();
+
+  //   const result = await GoogleAuth.signIn();
+  //   console.log(result);
+  //   // console.info('result', result);
+  //   if (result) {
+
+  //     router.push("/startingpage");
+
+  //     console.log(result);
+  //   }
+
+  // }
 
   const router = useIonRouter();
 
@@ -130,7 +148,7 @@ const Login = () => {
             <IonInput
               type="password"
               className="log3"
-              placeholder="password"
+              placeholder="Password"
               value={password}
               color="dark-black"
               onIonChange={(e) => setPassword(e.detail.value)}
@@ -152,6 +170,22 @@ const Login = () => {
               {" "}
               Log In
             </IonButton>
+            <IonRow className="social-login-text-row">
+            <IonLabel className="signup9">Login using</IonLabel>
+          </IonRow>
+          <IonRow className="google-btn-row">
+            <IonCol className="svg-col">
+              {/* <IonButton className="google-btn" fill="clear" onClick={signInGoogle}> */}
+                <IonImg className="google-img" src="assets/icon/google.svg"/>
+              {/* </IonButton> */}
+            </IonCol>
+
+            <IonCol className="fb-img-col">
+              <IonButton className="facebook-btn" fill="clear">
+                <IonImg className="face-img" src="assets/icon/facebook.svg" />
+              </IonButton>
+            </IonCol>
+          </IonRow>
           </IonRow>
           <IonRow className="login-text-row4">
             <IonLabel className="log7" color = "dark-black">
