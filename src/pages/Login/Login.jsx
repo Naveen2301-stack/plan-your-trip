@@ -1,20 +1,15 @@
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonImg,
   IonLabel,
   IonInput,
-  IonIcon,
   IonButton,
   useIonRouter,
   IonGrid,
   IonRow,
   useIonToast,
   useIonAlert,
-  IonLoading,
   useIonLoading,
   IonCol,
 } from "@ionic/react";
@@ -97,13 +92,12 @@ const Login = () => {
     } else {
       try {
         presentloading({
-          message: 'Logging In!...',
+          message: "Logging In!...",
           duration: 3000,
-          spinner:"crescent",
-          mode:"md",
-          cssClass:"lp-spinner"
-    
-        })
+          spinner: "crescent",
+          mode: "md",
+          cssClass: "lp-spinner",
+        });
         await login(email, password);
         dismissloading();
         handleButtonClick("user logged in successful");
@@ -171,24 +165,24 @@ const Login = () => {
               Log In
             </IonButton>
             <IonRow className="social-login-text-row">
-            <IonLabel className="signup9">Login using</IonLabel>
-          </IonRow>
-          <IonRow className="google-btn-row">
-            <IonCol className="svg-col">
-              {/* <IonButton className="google-btn" fill="clear" onClick={signInGoogle}> */}
-                <IonImg className="google-img" src="assets/icon/google.svg"/>
-              {/* </IonButton> */}
-            </IonCol>
+              <IonLabel className="signup9">Login using</IonLabel>
+            </IonRow>
+            <IonRow className="google-btn-row">
+              <IonCol className="svg-col">
+                {/* <IonButton className="google-btn" fill="clear" onClick={signInGoogle}> */}
+                <IonImg className="google-img" src="assets/icon/google.svg" />
+                {/* </IonButton> */}
+              </IonCol>
 
-            <IonCol className="fb-img-col">
-              <IonButton className="facebook-btn" fill="clear">
-                <IonImg className="face-img" src="assets/icon/facebook.svg" />
-              </IonButton>
-            </IonCol>
-          </IonRow>
+              <IonCol className="fb-img-col">
+                <IonButton className="facebook-btn" fill="clear">
+                  <IonImg className="face-img" src="assets/icon/facebook.svg" />
+                </IonButton>
+              </IonCol>
+            </IonRow>
           </IonRow>
           <IonRow className="login-text-row4">
-            <IonLabel className="log7" color = "dark-black">
+            <IonLabel className="log7" color="dark-black">
               Dont have an account ? <Link to="/signup">Signup</Link>
             </IonLabel>
           </IonRow>

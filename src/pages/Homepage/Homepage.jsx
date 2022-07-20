@@ -1,13 +1,19 @@
-import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react'
-import { IonReactRouter } from '@ionic/react-router'
-import { chatbox, heart, home, map, settings, } from 'ionicons/icons'
-import { Redirect, Route } from 'react-router'
-import ProtectedRoute from '../../components/ProtectedRoute'
-import Tab1 from '../Tab1'
-import Tab2 from '../Tab2'
-import Tab3 from '../Tab3'
-import Tab4 from '../Tab4'
-
+import {
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+} from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
+import { chatbox, heart, home, map, settings } from "ionicons/icons";
+import { Redirect, Route } from "react-router";
+import ProtectedRoute from "../../components/ProtectedRoute";
+import Tab1 from "../Tab1";
+import Tab2 from "../Tab2";
+import Tab3 from "../Tab3";
+import Tab4 from "../Tab4";
 
 const Homepage = () => {
   return (
@@ -16,23 +22,23 @@ const Homepage = () => {
         <IonTabs>
           <IonRouterOutlet>
             <Route path="/homepage/tab1">
-             <ProtectedRoute>
-              <Tab1 />
+              <ProtectedRoute>
+                <Tab1 />
               </ProtectedRoute>
             </Route>
             <Route path="/homepage/tab2">
-            <ProtectedRoute>
-              <Tab2 />
+              <ProtectedRoute>
+                <Tab2 />
               </ProtectedRoute>
             </Route>
             <Route path="/homepage/tab3">
-            <ProtectedRoute>
-              <Tab3 />
+              <ProtectedRoute>
+                <Tab3 />
               </ProtectedRoute>
             </Route>
             <Route path="/homepage/tab4">
-            <ProtectedRoute>
-              <Tab4 />
+              <ProtectedRoute>
+                <Tab4 />
               </ProtectedRoute>
             </Route>
             <Route exact path="/homepage">
@@ -60,6 +66,6 @@ const Homepage = () => {
         </IonTabs>
       </IonReactRouter>
     </>
-  )
-}
+  );
+};
 export default Homepage;

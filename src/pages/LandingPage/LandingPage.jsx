@@ -1,15 +1,10 @@
 import {
   IonButton,
   IonContent,
-  IonHeader,
-  IonItem,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonGrid,
   IonImg,
   IonRow,
-  IonCol,
   IonLabel,
 } from "@ionic/react";
 import { Link } from "react-router-dom";
