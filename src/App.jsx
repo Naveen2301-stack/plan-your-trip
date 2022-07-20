@@ -1,19 +1,13 @@
-import { BrowserRouter, Redirect, Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
   isPlatform,
   setupIonicReact,
   useIonAlert,
   useIonToast
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -45,7 +39,7 @@ import Login from './pages/Login/Login';
 import StartingPage from './pages/StartingPage/StartingPage';
 import { AuthContextProvider } from './context/AuthContext';
 import { useEffect, useState } from 'react';
-import { collection, doc, getDoc, setDoc } from "firebase/firestore"; 
+import {  doc, getDoc } from "firebase/firestore"; 
 import { db } from "./firebase";
 import { Browser } from '@capacitor/browser';
 import { App as app} from '@capacitor/app';
@@ -140,7 +134,8 @@ const App = () => {
     if (isPlatform("android")){
       getAppInfo();
     }
-  }, [0]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
     checkUpdate();
 
