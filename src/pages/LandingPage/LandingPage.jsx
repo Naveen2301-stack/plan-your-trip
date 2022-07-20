@@ -1,49 +1,65 @@
 import {
-    IonButton,
-    IonContent,
-    IonHeader,
-    IonItem,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-  } from "@ionic/react";
-  import "./LandingPage.css";
-  const LandingPage = () => {
-    
-  
-    return (
-      <IonPage>
-        <IonContent className="const">
-            <img src="assets/icon/Group.svg" alt="" />
-            <p className="plan">PlanTravel</p>
-            <h1 className="plan1">
-              Search less,
-              <br />
-              Travel more!
-            </h1>
-            <p className="plan2">Great experience at backpacker prices</p>
-            <IonButton expand="full"size="default"fill="solid"color="green"className="plan3" routerLink="/signup"> CREATE AN ACCOUNT</IonButton>
-            <br />
-           
+  IonButton,
+  IonContent,
+  IonPage,
+  IonGrid,
+  IonImg,
+  IonRow,
+  IonLabel,
+} from "@ionic/react";
+// import { Link } from "react-router-dom";
+import "./LandingPage.css";
+const LandingPage = () => {
+  return (
+    <IonPage>
+      <IonContent className="const">
+        <IonGrid className="grid8">
+          <IonRow className="landing-row">
+            <IonImg src="assets/icon/plane.svg" className="img" alt="" />
+
+            <IonLabel className="plan">PlanTravel</IonLabel>
+          </IonRow>
+
+          <IonRow className="text-row">
+            <IonLabel color="dark-black">Search less,</IonLabel>
+            <IonLabel color="dark-black">travel more</IonLabel>
+          </IonRow>
+
+          <IonRow className="text-row2">
+            <IonLabel color="dark-black">
+              Great experience at backpacker prices
+            </IonLabel>
+          </IonRow>
+
+          <IonRow className="create-acnt-btn">
             <IonButton
-              expand="full"
+              expand="block"
+              size="default"
+              shape="round"
+              fill="solid"
+              color="dark-black"
+              routerLink="/signup"
+              className="ion-text-capitalize plan3"
+            >
+              {" "}
+              Create An Account
+            </IonButton>
+            <IonButton
+              expand="block"
               size="default"
               fill="solid"
-              color="light"
-              className="plan4"
+              color="white"
+              className="ion-text-capitalize plan4"
               routerLink="/login"
+              shape="round"
             >
-              LOG IN
+              {" "}
+              Log In{" "}
             </IonButton>
-            <p className="plan5">By creating an account you agree to our</p>
-            <br />
-            <p className="plan6">
-              <u className="plan7">Terms & Conditions </u> and agree to
-              <u className="plan7"> Privacy Policy </u>
-            </p>
-          </IonContent>
-      </IonPage>
-    );
-  };
-  export default LandingPage;
-  
+          </IonRow>
+        </IonGrid>
+      </IonContent>
+    </IonPage>
+  );
+};
+export default LandingPage;

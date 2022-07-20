@@ -1,109 +1,95 @@
 .plan {
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 38px;
-    line-height: 60px;
-    /* identical to box height */
-    color: #000000;
-    text-align: end;
-    position: relative;
-    bottom: 26vh;
-    right:11vw;
+  display: flex;
+  flex-direction: column;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  color: #000000;
+  /* align-items: flex-end; */
+  margin-left: -13px;
 }
 
-img {
-    /* max-width: 100%; */
-    border: 0;
-    width: 22vw;
-    height: 30vh;
-    position: relative;
-    left: 15px
-}
-
-.plan1 {
-    font-family: 'Poppins', sans-serif;
-    color: #000000;
-    font-weight: 700;
-    font-size: 24px;
-    position: relative;
-    width: 192px;
-    height: 20px;
-    /* left: 119px; */
-    bottom: 160px;
-    left: 28vw;
-}
-
-.plan2 {
-    font-family: 'Poppins', sans-serif;
-    color: #000000;
-    word-spacing: -0px;
-    position: relative;
-    width: 95vw;
-    height: 40px;
-    left: 50px;
-    bottom: 115px;
-    font-size: 12px;
+.img {
+  display: flex;
+  width: 80px;
+  margin-left: -15px;
 }
 
 .plan3 {
-    font-family: 'Poppins', sans-serif;
-    color: #000000;
-    position: relative;
-    width: 280px;
-    height: 48px;
-    left: 14px;
-    top: -80px;
-    background: #00FFF0;
-    /* border-radius: 100px; */
+  width: 280px;
+  /* border-radius: 50px; */
 }
 
 .plan4 {
-    position: relative;
-    width: 280px;
-    height: 48px;
-    left: 14px;
-    top: -90px;
-    background: #FFFEFE;
-    /* border-radius: 1000px; */
+  width: 280px;
+  /* border-radius: 10px; */
+  margin-top: 15px;
 }
 
-.plan5 {
-    position: relative;
-    width: 265px;
-    height: 51px;
-    left: 17px;
-    top: -30px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 16px;
-    text-align: center;
-
-    color: #000000;
+.lp-last-text {
+  display: flex;
+  justify-content: center;
+  width: 265px;
+  height: 51px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  color: #000000;
 }
 
-.plan6 {
-    position: relative;
-    width: 300px;
-    height: 51px;
-    left: 1px;
-    top: -100px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 16px;
-    text-align: center;
-    color: #000000;
+.landing-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.plan7 {
-    color: #00FFF0
-}.const{
-    height:90vh;
-    width: 50vh;
+.text-row {
+  font-family: "Gulzar", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.text-row1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Gulzar", serif;
+  font-weight: 700;
+  font-size: 27px;
+}
+
+.text-row2 {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.create-acnt-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-acnt-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.grid8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  padding: 7%;
+}
+
+.const {
+  height: 100%;
+  --background: rgb(255, 201, 180);
 }

@@ -1,32 +1,43 @@
-.sp1{
-    position: absolute;
-width: 227px;
-height: 73px;
-left: 40px;
-top: 130px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 800;
-font-size: 32px;
-line-height: 40px;
-text-align: center;
-
-color: #06FDEE;
-
+.startingpage-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  height: 100vh;
 }
-.sp2{
-    position: absolute;
-width: 310px;
-height: 222.76px;
-left: 4px;
-top: 210px;
 
+.const4 {
+  height: 100%;
+  --background: rgb(255, 201, 180);
 }
-.sp3{
-    position: absolute;
-width: 300px;
-height: 50px;
-left: 8px;
-top: 500px;
+
+.startingpage-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+  /* font-family: 'Poppins'; */
+  /* font-style: normal; */
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  margin-top: 70px;
+}
+
+.get-started-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+  /* width: 100px; */
+  margin-left: 5px;
+}
+
+.signup-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 7rem 0;
 }

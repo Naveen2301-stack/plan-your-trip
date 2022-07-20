@@ -1,0 +1,111 @@
+.tab1 {
+    /* height: 100%; */
+    --background: rgb(255, 255, 255);
+  }
+  
+.tab1-grid{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* height: 100vh; */
+}
+
+.home-back-button-row{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content:flex-start;
+    padding: 5%;
+    margin-top: 80px;
+  
+    
+}
+.hi-text{
+    display: flex;
+    font-size: 1.7rem;
+    padding: 5%;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* justify-content: flex-start; */
+    /* margin-top: -60px; */
+}
+.v1{
+    display: flex; 
+    align-items: center;
+    margin-left: 5px;
+}
+.card-row{
+    display: flex;
+    justify-content: space-between
+}
+.card1{
+    padding: 4%;
+    border-radius: 10px;
+    height:100px
+}
+.card2{
+    padding: 4%;
+    border-radius: 10px;
+    height:100px
+}
+.card3{
+    padding: 4%;
+    border-radius: 10px;
+    height:100px
+}
+.img-img{
+    display: flex;
+    margin-top: -10px;
+    width: 50px;
+}
+.row2{
+    display: flex;
+    flex-direction: column;
+}
+.card-row{
+    margin-top:20px;
+}
+.pd{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.pd1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 600;
+    /* line-height: 30px;   */
+}
+.pd2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 600;
+    color:#3E95A1;
+}
+.big-cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.paris-text{
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    padding: 7px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.heart-icon{
+    width: 21px;
+    height: 27px;
+    margin-top: 16px;
+    margin-left: 130px;
+}
+.countries{
+    display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: center;
+    color: black;
+}
