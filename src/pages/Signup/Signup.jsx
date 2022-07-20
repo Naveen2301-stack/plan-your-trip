@@ -8,7 +8,6 @@ import {
   IonGrid,
   IonRow,
   useIonToast,
-  useIonAlert,
   useIonLoading,
 } from "@ionic/react";
 import { useState } from "react";
@@ -16,12 +15,12 @@ import { useState } from "react";
 import "./SignUp.css";
 // import { setErrorHandler } from 'ionicons/dist/types/stencil-public-runtime';
 import { UserAuth } from "../../context/AuthContext";
-import { toastController } from "@ionic/core";
+// import { toastController } from "@ionic/core";
 import { Link } from "react-router-dom";
 import { alert } from "ionicons/icons";
 
 const Signup = () => {
-  const [present, dismiss] = useIonToast();
+  const [present] = useIonToast();
   async function handleButtonClick(message) {
     present({
       message: message,
@@ -32,13 +31,13 @@ const Signup = () => {
       icon: alert,
     });
   }
-  const [presentAlert] = useIonAlert();
+  // const [presentAlert] = useIonAlert();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   // const [dob, setDOB] = useState("")
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { createUser, currentUser } = UserAuth();
+  const [ setError] = useState("");
+  const { createUser} = UserAuth();
   // const [loading, setloading] = useState(false);
   const [presentloading, dismissloading] = useIonLoading();
 
@@ -51,15 +50,15 @@ const Signup = () => {
   //ion-router
   const router = useIonRouter();
 
-  async function handleAlert(message) {
-    presentAlert({
-      header: "Alert",
-      message: message,
-      buttons: ["OK"],
-      mode: "ios",
-      color: "dark-black",
-    });
-  }
+  // async function handleAlert(message) {
+  //   presentAlert({
+  //     header: "Alert",
+  //     message: message,
+  //     buttons: ["OK"],
+  //     mode: "ios",
+  //     color: "dark-black",
+  //   });
+  // }
 
   const handleSubmit = async (e) => {
     var atposition = email.indexOf("@");
@@ -95,7 +94,7 @@ const Signup = () => {
         });
 
         await createUser(email, password);
-        handleButtonClick(name + "  " + "user sucessfully registered");
+        handleButtonClick("user sucessfully registered");
         clearInputs();
         dismissloading();
         router.push("/login");

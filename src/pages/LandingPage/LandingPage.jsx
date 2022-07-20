@@ -7,7 +7,7 @@ import {
   IonRow,
   IonLabel,
 } from "@ionic/react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./LandingPage.css";
 const LandingPage = () => {
   return (

@@ -7,7 +7,7 @@ import {
   IonTabs,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { chatbox, heart, home, map, settings } from "ionicons/icons";
+import {  heart, home, map, settings } from "ionicons/icons";
 import { Redirect, Route } from "react-router";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import Tab1 from "../Tab1";

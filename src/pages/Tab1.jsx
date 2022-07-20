@@ -1,9 +1,6 @@
 import {
   IonContent,
-  IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonImg,
   IonLabel,
   IonSearchbar,
@@ -13,22 +10,17 @@ import {
   IonCard,
   IonIcon,
   useIonViewWillEnter,
-  IonButton,
   IonText,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
 } from "@ionic/react";
 import { heartOutline } from "ionicons/icons";
-import { IonSlides, IonSlide } from "@ionic/react";
-import ExploreContainer from "../components/ExploreContainer";
 import "./Tab1.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { entries } from "../data";
 import { useState } from "react";
-import { Redirect, Route, Router } from "react-router";
+import { Router } from "react-router";
 // import country from '../../public/assets/images/Group 92.png'
 
 const Tab1 = () => {
