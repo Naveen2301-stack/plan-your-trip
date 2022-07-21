@@ -22,7 +22,7 @@ import {
               Travel more!
             </h1>
             <p className="plan2">Great experience at backpacker prices</p>
-            <IonButton expand="full"size="default"fill="solid"color="green"className="plan3" routerLink="/signup"> CREATE AN ACCOUNT</IonButton>
+            <IonButton expand="full"size="default"fill="solid"color="green"className="plan3" routerLink="/signup"> CREATE AN ACCOUNT WITH PLAN TRAVEL</IonButton>
             <br />
            
             <IonButton
