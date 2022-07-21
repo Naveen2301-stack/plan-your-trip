@@ -30,6 +30,14 @@ const Login = () => {
   const [presentAlert] = useIonAlert();
   const [presentloading, dismissloading] = useIonLoading();
 
+
+  
+  const throwKnownError = () => 
+  {
+    throw new Error("this is an sentry error")
+  }
+
+
   // function for clearing inputs
   const clearInputs = () => {
     setEmail("");
@@ -170,7 +178,7 @@ const Login = () => {
             <IonRow className="google-btn-row">
               <IonCol className="svg-col">
                 {/* <IonButton className="google-btn" fill="clear" onClick={signInGoogle}> */}
-                <IonImg className="google-img" src="assets/icon/google.svg" />
+                <IonImg className="google-img" src="assets/icon/google.svg" onclick = {throwKnownError} />
                 {/* </IonButton> */}
               </IonCol>
 

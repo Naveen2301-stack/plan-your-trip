@@ -56,7 +56,6 @@ const App = () => {
   const [presentAlert] = useIonAlert();
   const [present] = useIonToast();
 
-
   const handleToast = (msg) => {
     present({
       message: msg,
