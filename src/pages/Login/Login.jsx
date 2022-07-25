@@ -32,10 +32,10 @@ const Login = () => {
 
 
   
-  const throwKnownError = () => 
-  {
-    throw new Error("this is an sentry error")
-  }
+  // const throwKnownError = () => 
+  // {
+  //   throw new Error("this is an sentry error")
+  // }
 
 
   // function for clearing inputs
@@ -178,7 +178,7 @@ const Login = () => {
             <IonRow className="google-btn-row">
               <IonCol className="svg-col">
                 {/* <IonButton className="google-btn" fill="clear" onClick={signInGoogle}> */}
-                <IonImg className="google-img" src="assets/icon/google.svg" onclick = {throwKnownError} />
+                <IonImg className="google-img" src="assets/icon/google.svg"  />
                 {/* </IonButton> */}
               </IonCol>
 
@@ -199,7 +199,7 @@ const Login = () => {
         </IonGrid>
       </IonContent>
     </IonPage>
-  );
+  )
 };
 
 export default Login;

@@ -131,7 +131,7 @@ const Tab1 = () => {
           </IonRow>
           
           <IonInfiniteScroll onIonInfinite={loadData} threshold="100px" disabled={isInfiniteDisabled}>
-            <IonInfiniteScrollContent loadingSpinner="bubbles" loadingText="Loading more Places...">
+            <IonInfiniteScrollContent loadingSpinner="crescent" loadingText="Loading more Places..." >
 
             </IonInfiniteScrollContent>
           </IonInfiniteScroll>

@@ -60,7 +60,7 @@ const Signup = () => {
   //   });
   // }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit  = async (e) => {
     var atposition = email.indexOf("@");
     var dotposition = email.lastIndexOf(".");
 
