@@ -7,7 +7,7 @@ import {
   IonTabs,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import {  heart, home, map, settings } from "ionicons/icons";
+import {  heart, home, map, personCircle, settings } from "ionicons/icons";
 import { Redirect, Route } from "react-router";
 import ProtectedRoute from "../../components/ProtectedRoute";
 import Tab1 from "../Tab1";
@@ -59,8 +59,8 @@ const Homepage = () => {
               <IonLabel>Favourite</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab4" href="/homepage/tab4">
-              <IonIcon icon={settings} />
-              <IonLabel>settings</IonLabel>
+              <IonIcon icon={personCircle} />
+              <IonLabel>Profile</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
