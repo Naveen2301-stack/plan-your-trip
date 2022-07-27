@@ -13,7 +13,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { alert, arrowForwardOutline, chevronForwardOutline, ellipsisVerticalOutline } from "ionicons/icons";
+import { alert, arrowForwardOutline, chevronForwardOutline, ellipsisVerticalOutline, headsetOutline, heartOutline, readerOutline } from "ionicons/icons";
 //
 
 import "./Tab4.css";
@@ -74,6 +74,7 @@ const Tab4 = () => {
               {/* <IonAvatar slot="start">
                 <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
               </IonAvatar> */}
+              <IonIcon icon={heartOutline} slot = "start"></IonIcon>
               <IonIcon icon = {chevronForwardOutline} slot= "end"></IonIcon>
               <IonLabel>Account information</IonLabel>
             </IonItem>
@@ -84,6 +85,7 @@ const Tab4 = () => {
               {/* <IonAvatar slot="start">
                 <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
               </IonAvatar> */}
+                <IonIcon icon={readerOutline} slot = "start"></IonIcon>
               <IonLabel>Your Promotion</IonLabel>
               <IonIcon icon = {chevronForwardOutline} slot= "end"></IonIcon>
             </IonItem>
