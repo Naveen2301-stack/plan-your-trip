@@ -13,27 +13,30 @@ import {
   IonText,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
+  useIonRouter,
 } from "@ionic/react";
 import { heartOutline } from "ionicons/icons";
 import "./Tab1.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { entries } from "../data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Router } from "react-router";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
 // import country from '../../public/assets/images/Group 92.png'
 
 const Tab1 = () => {
   const [data, setData] = useState([]);
   const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
+  const [places,setUpdatedPlaces] = useState([])
+  const router = useIonRouter();
 
   const pushData = () => {
     // const max = datas.length + 8;
     // const min = max - 12;
     const newData = [];
     for (let i = 0; i < 12; i++) {
-      entries[i].id = entries[i].id + i * i;
-      newData.push(entries[i]);
+      newData.push(places[i]);
     }
     setData([...data, ...newData]);
   };
@@ -55,10 +58,17 @@ const Tab1 = () => {
     pushData();
   });
 
-  const handleCategory = (path) => {
-    Router.push(path);
-    window.location.reload();
-  };
+  useEffect(()=>{
+    getDocs(collection(db, "places_destination")).then((snapshot) =>{
+      const places = [];
+      snapshot.docs.forEach((docs) =>{
+        places.push({...docs.data(), id: docs.id});
+      })
+      setUpdatedPlaces(places);
+
+    });
+  }, [])
+
 
   return (
     <IonPage>
@@ -113,13 +123,11 @@ const Tab1 = () => {
           </IonRow>
 
                 <IonRow className="big-cards">
-            {entries.map((data) => {
+            {places.map((data) => {
               return (
                 <IonCol
                   key={data.id}>
-                  <IonCard key={data.id} button className="card12" onClick={() =>
-                      handleCategory("/tabs/home/" + data.title.toLowerCase())
-                    }>
+                  <IonCard key={data.id} button className="card12">
                     {/* <IonImg src={data.image} className="img"></IonImg> */}
                     <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/logo.jpg"} width="350px" height="231px" style={{margin: "auto"}} />
                     <IonText className="paris-text">{data.title}</IonText>

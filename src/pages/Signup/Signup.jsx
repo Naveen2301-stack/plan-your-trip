@@ -10,17 +10,23 @@ import {
   useIonToast,
   useIonLoading,
 } from "@ionic/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { calendar, lockClosed, person } from 'ionicons/icons';
 import "./SignUp.css";
 // import { setErrorHandler } from 'ionicons/dist/types/stencil-public-runtime';
-import { UserAuth } from "../../context/AuthContext";
+import { UserAuth} from "../../context/AuthContext";
 // import { toastController } from "@ionic/core";
 import { Link } from "react-router-dom";
 import { alert } from "ionicons/icons";
+import { auth, db } from "../../firebase";
+import { doc, onSnapshot } from "firebase/firestore";
+
 
 const Signup = () => {
   const [present] = useIonToast();
+  const { logout, addData } = UserAuth();
+ 
+
   async function handleButtonClick(message) {
     present({
       message: message,
@@ -94,22 +100,21 @@ const Signup = () => {
         });
 
         await createUser(email, password);
+        await addData(auth,name,email);
+
         handleButtonClick("user sucessfully registered");
         clearInputs();
         dismissloading();
         router.push("/login");
       } catch (e) {
         dismissloading();
-        setError(e.message);
+        // setError(e.message);
         clearInputs();
         console.log(e.message);
       }
     }
   };
-
-  // if(loading){
-  //   return <IonLoading isOpen = {loading} onDidDismiss={() => setloading(false)} message={'SigningUp!...'} duration={3000} mode= "ios" spinner="bubbles"/>
-  // }
+  
   return (
     <IonPage>
       <IonContent className="const1">

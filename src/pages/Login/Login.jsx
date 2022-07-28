@@ -113,7 +113,7 @@ const Login = () => {
         router.push("/startingpage");
       } catch (e) {
         dismissloading();
-        setError(e.message);
+        // setError(e.message);
         clearInputs();
         handleAlert(e.message);
       }

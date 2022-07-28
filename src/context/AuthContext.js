@@ -4,7 +4,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 
 const UserContext = createContext();
 
@@ -15,16 +16,30 @@ export const AuthContextProvider = ({ children }) => {
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  const addData = async (auth, email, name) => {
 
+    setDoc(doc(db, "users", auth.currentUser.uid), {
+
+      uid: auth.currentUser.uid,
+
+      name: name,
+
+      email: email,
+
+      createdAt: Timestamp.fromDate(new Date()),
+
+    });
+
+  };
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const logout = () => {
     return signOut(auth);
   };
-
+  
   return (
-    <UserContext.Provider value={{ createUser, login, logout, user }}>
+    <UserContext.Provider value={{ createUser, login, logout, user,addData }}>
       {children}
     </UserContext.Provider>
   );
