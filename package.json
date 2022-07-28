@@ -9,6 +9,7 @@
     "@capacitor/cli": "^3.6.0",
     "@capacitor/core": "^3.6.0",
     "@capacitor/ios": "^3.6.0",
+    "@dcasia/react-lazy-load-image-component-improved": "^1.5.7",
     "@ionic/react": "^6.0.0",
     "@ionic/react-router": "^6.0.0",
     "@sentry/capacitor": "^0.7.1",
