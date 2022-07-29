@@ -128,7 +128,7 @@ const Tab1 = () => {
                       handleCategory("/tabs/home/" + data.title.toLowerCase())
                     }>
                     {/* <IonImg src={data.image} className="img"></IonImg> */}
-                    <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/logo.jpg"} width="350px" height="231px" style={{margin: "auto"}} onClick = {navigateDetails(id)} />
+                    <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/logo.jpg"} width="350px" height="231px" style={{margin: "auto"}} onClick = {navigateDetails} />
                     <IonText className="paris-text">{data.title}</IonText>
                     <IonIcon icon={heartOutline} className="heart-icon"></IonIcon>
                   </IonCard>
