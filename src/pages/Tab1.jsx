@@ -21,19 +21,32 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { entries } from "../data";
 import { useState } from "react";
-import { Router, useParams,  } from "react-router";
+import { Router, useParams } from "react-router";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
 
 // import country from '../../public/assets/images/Group 92.png'
 
 const Tab1 = () => {
   const [data, setData] = useState([]);
   const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
+  const [status, setStatus] = useState(false);
   const router = useIonRouter();
 
   const navigateDetails = (id) => {
-      router.push(`/details/${id}`);
-
+    router.push(`/details/${id}`);
   };
+
+  const addToWishlist = async (id,title,image) => {
+    await setDoc(doc(db, "users", auth.currentUser.uid, "Favourite_Places", id), {
+      title: title,
+      image: image,
+    });
+    setStatus(true);
+  };
+
+
+
 
   const pushData = () => {
     // const max = datas.length + 8;
@@ -45,19 +58,19 @@ const Tab1 = () => {
     }
     setData([...data, ...newData]);
   };
-  
+
   const loadData = (ev) => {
     console.log(data.length);
     setTimeout(() => {
       pushData();
-      console.log('Loaded data');
+      console.log("Loaded data");
       ev.target.complete();
       console.log(data.length);
-      if(data.length === 12){
+      if (data.length === 12) {
         setInfiniteDisabled(data.length < 12);
       }
     }, 5000);
-  }
+  };
   useIonViewWillEnter(() => {
     pushData();
   });
@@ -119,28 +132,50 @@ const Tab1 = () => {
             <IonLabel className="pd2">See all</IonLabel>
           </IonRow>
 
-                <IonRow className="big-cards">
+          <IonRow className="big-cards">
             {entries.map((data) => {
               return (
-                <IonCol
-                  key={data.id}>
-                  <IonCard key={data.id} button className="card12" onClick={() =>
+                <IonCol key={data.id}>
+                  <IonCard
+                    key={data.id}
+                    className="card12"
+                    onClick={() =>
                       handleCategory("/tabs/home/" + data.title.toLowerCase())
-                    }>
+                    }
+                  >
                     {/* <IonImg src={data.image} className="img"></IonImg> */}
-                    <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/logo.jpg"} width="350px" height="231px" style={{margin: "auto"}} onClick = {navigateDetails} />
+                    <LazyLoadImage
+                      src={data.image}
+                      effect="blur"
+                      delayTime={300}
+                      placeholderSrc={
+                        process.env.PUBLIC_URL + "/assets/logo.jpg"
+                      }
+                      width="350px"
+                      height="231px"
+                      style={{ margin: "auto" }}
+                      onClick={navigateDetails}
+                    />
                     <IonText className="paris-text">{data.title}</IonText>
-                    <IonIcon icon={heartOutline} className="heart-icon"></IonIcon>
+                    <IonIcon
+                      icon={heartOutline}
+                      className="heart-icon" onClick={addToWishlist(data.id, data.title, data.image)}
+                    ></IonIcon>
                   </IonCard>
                 </IonCol>
               );
             })}
           </IonRow>
-          
-          <IonInfiniteScroll onIonInfinite={loadData} threshold="100px" disabled={isInfiniteDisabled}>
-            <IonInfiniteScrollContent loadingSpinner="crescent" loadingText="Loading more Places..." >
 
-            </IonInfiniteScrollContent>
+          <IonInfiniteScroll
+            onIonInfinite={loadData}
+            threshold="100px"
+            disabled={isInfiniteDisabled}
+          >
+            <IonInfiniteScrollContent
+              loadingSpinner="crescent"
+              loadingText="Loading more Places..."
+            ></IonInfiniteScrollContent>
           </IonInfiniteScroll>
         </IonGrid>
       </IonContent>
