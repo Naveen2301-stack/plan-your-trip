@@ -13,6 +13,7 @@ import {
   IonText,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
+  useIonRouter,
 } from "@ionic/react";
 import { heartOutline } from "ionicons/icons";
 import "./Tab1.css";
@@ -20,12 +21,19 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { entries } from "../data";
 import { useState } from "react";
-import { Router } from "react-router";
+import { Router, useParams,  } from "react-router";
+
 // import country from '../../public/assets/images/Group 92.png'
 
 const Tab1 = () => {
   const [data, setData] = useState([]);
   const [isInfiniteDisabled, setInfiniteDisabled] = useState(false);
+  const router = useIonRouter();
+
+  const navigateDetails = (id) => {
+      router.push(`/details/${id}`);
+
+  };
 
   const pushData = () => {
     // const max = datas.length + 8;
@@ -37,8 +45,7 @@ const Tab1 = () => {
     }
     setData([...data, ...newData]);
   };
- 
-
+  
   const loadData = (ev) => {
     console.log(data.length);
     setTimeout(() => {
@@ -121,7 +128,7 @@ const Tab1 = () => {
                       handleCategory("/tabs/home/" + data.title.toLowerCase())
                     }>
                     {/* <IonImg src={data.image} className="img"></IonImg> */}
-                    <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/logo.jpg"} width="350px" height="231px" style={{margin: "auto"}} />
+                    <LazyLoadImage src={data.image} effect="blur" delayTime={300} placeholderSrc={process.env.PUBLIC_URL + "/assets/logo.jpg"} width="350px" height="231px" style={{margin: "auto"}} onClick = {navigateDetails(id)} />
                     <IonText className="paris-text">{data.title}</IonText>
                     <IonIcon icon={heartOutline} className="heart-icon"></IonIcon>
                   </IonCard>

@@ -10,6 +10,7 @@ const UserContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user] = useState({});
+  const [post, setPost] = useState([])
   // const [loggedIn, setLoggedIn] = useState(true);
 
   const createUser = (email, password) => {
@@ -24,7 +25,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ createUser, login, logout, user }}>
+    <UserContext.Provider value={{ createUser, login, logout, user,post,setPost }}>
       {children}
     </UserContext.Provider>
   );

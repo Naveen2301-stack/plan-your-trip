@@ -43,6 +43,7 @@ import {  doc, getDoc } from "firebase/firestore";
 import { db } from "./firebase";
 import { Browser } from '@capacitor/browser';
 import { App as app} from '@capacitor/app';
+import Details from './pages/Details';
 
 
 setupIonicReact();
@@ -169,6 +170,9 @@ const App = () => {
           </Route>
           <Route path="homepage/tab4">
             <Tab4 />
+          </Route>
+          <Route path="/details">
+            <Details/>
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
